@@ -1,0 +1,23 @@
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.gallery__items{
+  text-align: center;
+  padding: 0 5px;
+  width: 24%;
+}
+.gallery__items h1{
+  font-size: 16px;
+}
+.gallery__items h2{
+  font-size: 14px;
+}
+.items__img{
+  height: 305px;
+  overflow: hidden;
+}
+.items__img img{
+  width: 100%;
+}
