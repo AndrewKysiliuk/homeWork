@@ -1,1 +1,28 @@
-<app-gallery-item [item]="item" *ngFor="let item of galleryItems" (delId)="deleteItem($event)" class="gallery__items"></app-gallery-item>
+<form #addForm = "ngForm" (ngSubmit)="createItem()">
+  <div>
+    <p>Id:</p>
+    <input type="text" [(ngModel)]="petId" name="petId" #idError="ngModel" pattern="[0-9]+$">
+  </div>
+  <div *ngIf="idError.errors?.pattern" style="color: #285aff"> Enter number!!!</div>
+
+  <div>
+    <p>Url:</p>
+    <input type="text" [(ngModel)]="petUrl" name="petUrl" #urlError="ngModel" pattern="https?://.*">
+  </div>
+  <div *ngIf="urlError.errors?.pattern" style="color: #285aff">The address should begin with http:// or https://</div>
+
+  <div>
+    <p>Title:</p>
+    <input type="text" [(ngModel)]="petTitle" name="petTitle" #titleError="ngModel">
+    <select [(ngModel)]="petType" name="petType">
+      <option *ngFor="let type of option">{{type}}</option>
+    </select>
+  </div>
+
+  <button [disabled]="addForm.invalid">Create</button>
+</form>
+
+
+<div class="gallery">
+    <app-gallery-item [item]="item" *ngFor="let item of galleryItems" (delId)="deleteItem($event)" class="gallery__items"></app-gallery-item>
+</div>

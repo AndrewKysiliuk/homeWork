@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  constructor() { }
+  petId: number;
+  petUrl: string;
+  petTitle: string;
+  petType: string;
   galleryItems: any[] = [
     {
       id: 1,
@@ -59,6 +62,8 @@ export class GalleryComponent implements OnInit {
       url: 'https://placekitten.com/200/200',
     }
   ];
+  option: string[] = ['cat', 'dog', 'parrot'];
+  constructor() { }
 
   deleteItem(id) {
     let delIndex = null;
@@ -70,7 +75,21 @@ export class GalleryComponent implements OnInit {
     this.galleryItems.splice(delIndex, 1);
   }
 
+  createItem() {
+   let item = null;
+   item = {
+     id: this.petId,
+     url: this.petUrl,
+     title: this.petTitle
+   };
+   this.galleryItems.unshift(item);
+   this.petId = null;
+   this.petUrl = '';
+   this.petTitle = '';
+  }
+
   ngOnInit() {
+    this.petType = this.option[0];
   }
 
 }

@@ -1,6 +1,5 @@
-<h1>{{item.id}}</h1>
 <div class="items__img">
   <img [src]="item.url" alt="image">
 </div>
-<h2>{{item.title}}</h2>
-<button (click)="deleteId()">Delete</button>
+<p class="items__title">{{item.title}}</p>
+<button class="items__btn" (click)="deleteId()">Delete</button>

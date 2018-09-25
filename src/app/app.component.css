@@ -1,5 +1,4 @@
-.gallery{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.container{
+  margin: 0 auto;
+  padding: 0 90px;
 }

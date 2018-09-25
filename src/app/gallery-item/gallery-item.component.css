@@ -1,0 +1,17 @@
+.items__img{
+  margin: 0 auto;
+  width: 65%;
+}
+.items__img img{
+  width: 175px;
+  height: 180px;
+}
+.items__title{
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+}
+.items__btn{
+
+}
