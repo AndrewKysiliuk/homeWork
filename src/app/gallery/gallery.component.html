@@ -1,13 +1,13 @@
 <form #addForm = "ngForm" (ngSubmit)="createItem()">
   <div>
     <p>Id:</p>
-    <input type="text" [(ngModel)]="petId" name="petId" #idError="ngModel" pattern="[0-9]+$">
+    <input type="text" [(ngModel)]="petId" name="petId" #idError="ngModel" pattern="[0-9]+$" required>
   </div>
   <div *ngIf="idError.errors?.pattern" style="color: #285aff"> Enter number!!!</div>
 
   <div>
     <p>Url:</p>
-    <input type="text" [(ngModel)]="petUrl" name="petUrl" #urlError="ngModel" pattern="https?://.*">
+    <input type="text" [(ngModel)]="petUrl" name="petUrl" #urlError="ngModel" pattern="https?://.*" required>
   </div>
   <div *ngIf="urlError.errors?.pattern" style="color: #285aff">The address should begin with http:// or https://</div>
 
