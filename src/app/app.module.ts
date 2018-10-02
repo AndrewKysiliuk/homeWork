@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {MyModuleModule} from './my-module/my-module.module';
+import {MyService} from './MyService';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import {MyModuleModule} from './my-module/my-module.module';
     BrowserModule,
     MyModuleModule
   ],
-  providers: [],
+  providers: [
+    MyService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
