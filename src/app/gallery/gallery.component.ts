@@ -7,36 +7,39 @@ import {MyService} from '../MyService';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  petId: number;
-  petUrl: string;
-  petTitle: string;
-  petType: string;
-  galleryItems: any[] = null;
-  option: string[] = ['cat', 'dog', 'parrot'];
+  pet: Pet = new Pet();
+  galleryItems: Pet[] = null;
 
   constructor(private service: MyService) {}
 
-
-  deleteItem(id) {
+  deleteItem(id: number) {
     this.service.delRecord(id);
   }
 
   createItem() {
-   let item = null;
-   item = {
-     id: this.petId,
-     url: this.petUrl,
-     title: this.petTitle
-   };
-   this.service.newRecord(item);
-   this.petId = null;
-   this.petUrl = '';
-   this.petTitle = '';
+   const newPet = new Pet();
+   newPet.setData(this.pet.id, this.pet.url, this.pet.title);
+   this.service.newRecord(newPet);
+   this.pet.id = null;
+   this.pet.url = '';
+   this.pet.title = '';
   }
 
   ngOnInit() {
-    this.petType = this.option[0];
+    // this.service.initLocalStorage(); // розкоментувати для наповнення localStorage даними
+    this.service.init();
     this.galleryItems = this.service.getData();
   }
 
+}
+export class Pet {
+  id: number;
+  url: string;
+  title: string;
+
+  setData(Id: number, Url: string, Title: string) {
+    this.id = Id;
+    this.url = Url;
+    this.title = Title;
+  }
 }
