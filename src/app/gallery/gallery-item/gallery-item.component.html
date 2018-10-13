@@ -1,5 +1,7 @@
-<div class="items__img">
-  <img [src]="item.url" alt="image">
+<div class="items__img" >
+  <a (click)="goToItemPage(item.id)">
+    <img [src]="item.url" alt="image">
+  </a>
 </div>
 <p class="items__title">{{item.title}}</p>
 <button class="items__btn" (click)="deleteId()">Delete</button>

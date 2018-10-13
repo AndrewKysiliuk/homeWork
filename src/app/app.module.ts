@@ -2,20 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {MyModuleModule} from './my-module/my-module.module';
-import {MyService} from './MyService';
+import { GalleryModule } from './gallery/gallery.module';
+import { HttpClientService } from './HttpClientService';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    MyModuleModule
+    GalleryModule,
+    AppRoutingModule
   ],
   providers: [
-    MyService,
+    HttpClientService,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 
-export class MyService {
+export class HttpClientService {
 
   constructor(private http: HttpClient) {
   }
@@ -16,28 +16,6 @@ export class MyService {
     return this.http.get(this.httpUrl);
   }
 
-  /*  initLocalStorage() {
-      galleryItems.forEach((value, index) => {
-        localStorage.setItem(`${value.id}`, JSON.stringify(value));
-        console.log(`${value.id}`);
-      });
-    }
-
-    init(): void {
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const data = JSON.parse(localStorage.getItem(key));
-        if (data) {
-          this.gallery.push(data);
-        }
-      }
-    }
-
-     getData() {
-      this.httpGet().subscribe()
-    }
-    */
-
   newRecord(val: Pet): Observable<{}> {
       return this.http.post(this.httpUrl, val);
   }
@@ -45,5 +23,8 @@ export class MyService {
   delRecord(id: number): Observable<{}>{
     const delUrl = `${this.httpUrl}/${id}`;
     return this.http.delete(delUrl);
+  }
+  getById(id: number){
+    return this.http.get<Pet>(`${this.httpUrl}/${id}`);
   }
 }

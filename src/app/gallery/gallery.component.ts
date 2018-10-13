@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MyService} from '../MyService';
+import {HttpClientService} from '../HttpClientService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -7,10 +8,9 @@ import {MyService} from '../MyService';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  pet: Pet = new Pet();
-  galleryItems: Pet[] = null;
+  galleryItems: Pet[] = [];
 
-  constructor(private service: MyService) {}
+  constructor(private service: HttpClientService, private router: Router) {}
 
   deleteItem(id: number) {
     let delIndex = null;
@@ -25,13 +25,8 @@ export class GalleryComponent implements OnInit {
     );
   }
 
-  createItem() {
-   const newPet = new Pet();
-   newPet.setData(this.pet.id, this.pet.url, this.pet.title);
-   this.service.newRecord(newPet).subscribe(data => this.galleryItems.unshift(newPet), error => console.log(error));
-   this.pet.id = null;
-   this.pet.url = '';
-   this.pet.title = '';
+  goToCreate() {
+    this.router.navigate(['/create']);
   }
 
   ngOnInit() {
