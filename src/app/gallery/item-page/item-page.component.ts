@@ -10,7 +10,7 @@ import { Pet } from '../gallery.component';
 export class ItemPageComponent implements OnInit {
 
   itemId: number;
-  pet: Pet;
+  pet: Pet = null;
 
   constructor(private ar: ActivatedRoute, private service: HttpClientService) { }
 

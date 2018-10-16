@@ -16,8 +16,7 @@ export class ItemCreateComponent implements OnInit {
     ) { }
 
   createItem() {
-    const newPet = new Pet();
-    newPet.setData(this.pet.id, this.pet.url, this.pet.title);
+    const newPet = new Pet(this.pet.id, this.pet.url, this.pet.title);
     this.service.newRecord(newPet).subscribe(() => {
       this.router.navigate(['']);
       this.pet = new Pet();

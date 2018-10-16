@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemCreateComponent } from './item-create/item-create.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import {RouterModule} from '@angular/router';
+import {GalleryRoutingModule} from './gallery-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    GalleryRoutingModule
   ],
   declarations: [
     GalleryComponent,

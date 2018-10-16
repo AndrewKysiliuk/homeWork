@@ -16,7 +16,7 @@ export class GalleryItemComponent implements OnInit {
     this.delId.emit(this.item.id);
   }
   goToItemPage(id: number){
-    this.router.navigate(['item', id]);
+    this.router.navigate(['gallery', id]);
   }
   ngOnInit() {
   }

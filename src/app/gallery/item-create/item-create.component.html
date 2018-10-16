@@ -1,12 +1,6 @@
 <div class="container">
   <form #addForm = "ngForm" (ngSubmit)="createItem()">
-  <div>
-    <p>Id:</p>
-    <input type="number" [(ngModel)]="pet.id" name="petId" #idError="ngModel" pattern="[0-9]+$" required>
-  </div>
-  <div *ngIf="idError.errors?.pattern" style="color: #285aff"> Enter number!!!</div>
-
-  <div>
+    <div>
     <p>Url:</p>
     <input type="text" [(ngModel)]="pet.url" name="petUrl" #urlError="ngModel" pattern="https?://.*" required>
   </div>

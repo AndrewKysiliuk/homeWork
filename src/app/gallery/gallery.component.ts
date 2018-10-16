@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit {
   }
 
   goToCreate() {
-    this.router.navigate(['/create']);
+    this.router.navigate(['gallery/new']);
   }
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class Pet {
   url: string;
   title: string;
 
-  setData(Id: number, Url: string, Title: string) {
+  constructor (Id: number = null, Url: string = '', Title: string = '') {
     this.id = Id;
     this.url = Url;
     this.title = Title;
