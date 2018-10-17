@@ -1,1 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="">Cat Gallery</a>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/gallery">Gallery</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <button class="btn btn-primary" (click)="authorization()">{{authorText}}</button>
+    </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>

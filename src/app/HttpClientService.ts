@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Pet} from './gallery/gallery.component';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Pet} from './Pet';
 
 @Injectable()
 

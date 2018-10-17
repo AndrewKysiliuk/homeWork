@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { Pet } from '../gallery.component';
 import { Router } from '@angular/router';
+import {Pet} from '../../Pet';
+
 
 @Component({
   selector: 'app-gallery-item',

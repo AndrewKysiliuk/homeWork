@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientService } from '../../HttpClientService';
 import { ActivatedRoute } from '@angular/router';
-import { Pet } from '../gallery.component';
+import {Pet} from '../../Pet';
+
 @Component({
   selector: 'app-item-page',
   templateUrl: './item-page.component.html',
@@ -9,13 +9,11 @@ import { Pet } from '../gallery.component';
 })
 export class ItemPageComponent implements OnInit {
 
-  itemId: number;
   pet: Pet = null;
 
-  constructor(private ar: ActivatedRoute, private service: HttpClientService) { }
+  constructor(private ar: ActivatedRoute) { }
 
   ngOnInit() {
-    this.ar.params.subscribe(data => this.itemId = data.id);
-    this.service.getById(this.itemId).subscribe((data: Pet) => this.pet = data);
+    this.ar.data.subscribe(data => this.pet = data.item);
   }
 }

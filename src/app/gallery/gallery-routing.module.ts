@@ -4,10 +4,17 @@ import { RouterModule, Routes} from '@angular/router';
 import { GalleryComponent } from './gallery.component';
 import { ItemCreateComponent } from './item-create/item-create.component';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { AuthGuard } from '../auth.guard';
+import { GalleryResolveService } from './gallery-resolve.service';
+import { GalleryItemResolveService } from './gallery-item-resolve.service';
 
 const galleryRoutes: Routes = [
   {
-    path: 'gallery',
+    path: '',
+    canActivate: [AuthGuard],
+    resolve: {
+      gallery: GalleryResolveService
+    },
     children: [
       {
         path: '',
@@ -19,6 +26,9 @@ const galleryRoutes: Routes = [
       },
       {
         path: ':id',
+        resolve: {
+          item: GalleryItemResolveService
+        },
         component: ItemPageComponent
       }
     ]
