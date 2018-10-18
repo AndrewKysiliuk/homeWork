@@ -12,13 +12,13 @@ const galleryRoutes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
-    resolve: {
-      gallery: GalleryResolveService
-    },
     children: [
       {
         path: '',
-        component: GalleryComponent
+        component: GalleryComponent,
+        resolve: {
+          gallery: GalleryResolveService
+        },
       },
       {
         path: 'new',
