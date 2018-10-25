@@ -1,6 +1,6 @@
 <div class="container">
   <button class="btn btn-primary" (click)="goToCreate()">Create record</button>
-</div>
-<div class="gallery">
+  <div class="gallery">
     <app-gallery-item [item]="item" *ngFor="let item of galleryItems" (delId)="deleteItem($event)" class="gallery__items"></app-gallery-item>
+  </div>
 </div>

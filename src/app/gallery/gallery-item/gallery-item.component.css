@@ -1,17 +1,14 @@
-.items__img{
-  margin: 0 auto;
-  width: 65%;
-}
-.items__img img{
-  width: 175px;
+/*.items__img{*/
+  /*margin: 0 auto;*/
+  /*width: 65%;*/
+/*}*/
+.items__img {
   height: 180px;
 }
 .items__title{
-  height: 30px;
-  font-size: 14px;
+  height: 40px;
+  font-size: 12px;
   font-weight: bold;
   overflow: hidden;
 }
-.items__btn{
 
-}

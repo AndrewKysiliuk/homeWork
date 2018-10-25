@@ -1,7 +1,22 @@
-<div class="items__img" >
-  <a (click)="goToItemPage(item.id)">
-    <img [src]="item.url" alt="image">
-  </a>
-</div>
-<p class="items__title">{{item.title}}</p>
-<button class="items__btn" (click)="deleteId()">Delete</button>
+<!--<div class="items__img" >-->
+  <!--<a (click)="goToItemPage(item.id)">-->
+    <!--<img [src]="item.url" alt="image">-->
+  <!--</a>-->
+<!--</div>-->
+<!--<p class="items__title">{{item.title}}</p>-->
+<!--<button class="items__btn" (click)="deleteId()">Delete</button>-->
+
+<mat-card>
+  <img mat-card-image class="items__img" [src]="item.url" alt="Photo of a Shiba Inu" (click)="goToItemPage(item.id)">
+  <mat-card-content>
+    <p class="items__title">
+      {{item.title | truncatePipe:[100]}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="deleteId()">
+        DELETE
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
