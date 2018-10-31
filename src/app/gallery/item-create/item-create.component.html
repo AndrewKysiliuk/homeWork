@@ -11,6 +11,6 @@
     <input type="text" [(ngModel)]="pet.title" name="petTitle" #titleError="ngModel">
   </div>
    <br>
-  <button [disabled]="addForm.invalid" class="btn btn-primary">Create</button>
+  <button [disabled]="addForm.invalid" class="btn btn-primary" (click)="openSnackBar(pet.title)">Create</button>
 </form>
 </div>

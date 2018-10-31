@@ -6,7 +6,6 @@ import { ItemCreateComponent } from './item-create/item-create.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { AuthGuard } from '../auth.guard';
 import { GalleryResolveService } from './gallery-resolve.service';
-import { GalleryItemResolveService } from './gallery-item-resolve.service';
 
 const galleryRoutes: Routes = [
   {
@@ -24,13 +23,10 @@ const galleryRoutes: Routes = [
         path: 'new',
         component: ItemCreateComponent
       },
-      {
-        path: ':id',
-        resolve: {
-          item: GalleryItemResolveService
-        },
-        component: ItemPageComponent
-      }
+      // {
+      //   path: ':id',    /*?????????*/
+      //   component: ItemPageComponent
+      // }
     ]
   }
 ];

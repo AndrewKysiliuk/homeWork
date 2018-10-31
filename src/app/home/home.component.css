@@ -1,5 +1,5 @@
 .home_bg{
   height: 100vh;
-  background: url("https://i.etsystatic.com/8070526/r/il/f05ba6/1403006792/il_fullxfull.1403006792_hxpq.jpg") no-repeat center;
+  background: url(../../assets/welcome.png) no-repeat center;
   background-size: contain;
 }

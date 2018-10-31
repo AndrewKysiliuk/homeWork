@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {of} from 'rxjs';
-
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +12,12 @@ export class AuthService {
     localStorage.setItem('userIn', JSON.stringify({value: status}));
   }
 
-  getStatus(): any {
+  getStatus(): Observable<boolean> {
     const ls = localStorage.getItem('userIn');
     let status = false;
     if (ls) {
       if (JSON.parse(ls).value) {
         status = true;
-      } else {
-        status = false;
       }
     } else {
       localStorage.setItem('userIn', JSON.stringify({value: status}));

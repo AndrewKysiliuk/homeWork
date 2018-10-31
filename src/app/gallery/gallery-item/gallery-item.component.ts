@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { Router } from '@angular/router';
-import {Pet} from '../../Pet';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Pet } from '../../Pet';
+import { MatDialog } from '@angular/material';
+import { ItemPageComponent } from '../item-page/item-page.component';
 
 
 @Component({
@@ -8,18 +9,20 @@ import {Pet} from '../../Pet';
   templateUrl: './gallery-item.component.html',
   styleUrls: ['./gallery-item.component.css']
 })
-export class GalleryItemComponent implements OnInit {
+export class GalleryItemComponent {
   @Input() item: Pet;
   @Output() delId = new EventEmitter<number>();
-  constructor(private router: Router) { }
+
+  constructor(private matDialog: MatDialog) {
+  }
 
   deleteId() {
     this.delId.emit(this.item.id);
   }
-  goToItemPage(id: number){
-    this.router.navigate(['gallery', id]);
-  }
-  ngOnInit() {
-  }
 
+  openDialog() {
+    this.matDialog.open(ItemPageComponent, {
+      data: {image: this.item.url}
+    });
+  }
 }

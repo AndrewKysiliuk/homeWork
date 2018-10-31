@@ -12,8 +12,8 @@ export class HttpClientService {
 
   private httpUrl = 'http://localhost:3000/gallery';
 
-  httpGet(): Observable<{}> {
-    return this.http.get(this.httpUrl);
+  httpGet(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(this.httpUrl);
   }
 
   newRecord(val: Pet): Observable<{}> {

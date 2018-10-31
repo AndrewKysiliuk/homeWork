@@ -8,9 +8,25 @@ import { ItemPageComponent } from './item-page/item-page.component';
 import { RouterModule} from '@angular/router';
 import { GalleryRoutingModule} from './gallery-routing.module';
 import { GalleryResolveService} from './gallery-resolve.service';
-import { GalleryItemResolveService} from './gallery-item-resolve.service';
-import {MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
+// import { GalleryItemResolveService} from './gallery-item-resolve.service';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatTooltipModule
+} from '@angular/material';
 import {TruncatePipePipe} from '../truncate-pipe.pipe';
+
+const materialModules = [
+  MatCardModule,
+  MatButtonModule,
+  MatIconModule,
+  MatTooltipModule,
+  MatSnackBarModule,
+  MatDialogModule,
+];
 
 @NgModule({
   imports: [
@@ -18,9 +34,7 @@ import {TruncatePipePipe} from '../truncate-pipe.pipe';
     FormsModule,
     RouterModule,
     GalleryRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule
+    materialModules,
   ],
   declarations: [
     GalleryComponent,
@@ -29,12 +43,15 @@ import {TruncatePipePipe} from '../truncate-pipe.pipe';
     ItemPageComponent,
     TruncatePipePipe
   ],
+  entryComponents: [
+    ItemPageComponent,
+  ],
   exports: [
     ItemCreateComponent,
     GalleryComponent,
     GalleryItemComponent,
-    ItemPageComponent
+    ItemPageComponent,
   ],
-  providers: [GalleryResolveService, GalleryItemResolveService]
+  providers: [GalleryResolveService, /*GalleryItemResolveService*/]
 })
 export class GalleryModule { }

@@ -30,11 +30,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getStatus().subscribe(data => this.status = data);
-    if (this.status) {
-      this.authorText = 'Exit';
-    } else {
-      this.authorText = 'Enter';
-    }
+    this.authorText = this.status ? 'Exit' : 'Enter';
   }
 }
 
