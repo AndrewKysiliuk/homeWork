@@ -1,16 +1,16 @@
-<div class="container">
-  <form #addForm = "ngForm" (ngSubmit)="createItem()">
-    <div>
+<div class="item_create">
+  <form #addForm = "ngForm" class="item_create__form" (ngSubmit)="createItem()">
+    <div class="item_create__input">
     <p>Url:</p>
     <input type="text" [(ngModel)]="pet.url" name="petUrl" #urlError="ngModel" pattern="https?://.*" required>
   </div>
   <div *ngIf="urlError.errors?.pattern" style="color: #285aff">The address should begin with http:// or https://</div>
 
-  <div>
+  <div class="item_create__input">
     <p>Title:</p>
     <input type="text" [(ngModel)]="pet.title" name="petTitle" #titleError="ngModel">
   </div>
    <br>
-  <button [disabled]="addForm.invalid" class="btn btn-primary" (click)="openSnackBar(pet.title)">Create</button>
+  <button [disabled]="addForm.invalid" mat-raised-button class="item_create__btn" (click)="openSnackBar(pet.title)">Create</button>
 </form>
 </div>

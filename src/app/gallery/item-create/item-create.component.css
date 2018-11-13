@@ -1,0 +1,27 @@
+.item_create{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+.item_create__form{
+  margin-top: 15px;
+  width: 35%;
+  border: 1px solid #58bebf;
+  border-radius: 10px;
+}
+.item_create__input p{
+  margin: 10px 0;
+}
+.item_create__input input{
+  width: 95%;
+  height: 24px;
+
+}
+.item_create__btn{
+  width: 98%;
+  margin-bottom: 15px;
+  background-color: coral;
+  color: #fff;
+  font-weight: bold;
+}

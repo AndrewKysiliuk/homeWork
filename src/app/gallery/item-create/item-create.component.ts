@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './item-create.component.html',
   styleUrls: ['./item-create.component.css']
 })
-export class ItemCreateComponent{
+export class ItemCreateComponent {
   pet: Pet = new Pet();
   constructor(
     private service: HttpClientService,
@@ -26,7 +26,7 @@ export class ItemCreateComponent{
     }
     );
   }
-  openSnackBar(text: string) {
+  openSnackBar() {
     this.snackBar.open(`New item: '${this.pet.title}' was created`, 'close', {
       duration: 2000
     });

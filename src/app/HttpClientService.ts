@@ -20,11 +20,11 @@ export class HttpClientService {
       return this.http.post(this.httpUrl, val);
   }
 
-  delRecord(id: number): Observable<{}>{
+  delRecord(id: number): Observable<{}> {
     const delUrl = `${this.httpUrl}/${id}`;
     return this.http.delete(delUrl);
   }
-  getById(id: number){
+  getById(id: number) {
     return this.http.get<Pet>(`${this.httpUrl}/${id}`);
   }
 }
